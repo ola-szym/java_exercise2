@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e953db37-0e0c-4200-a7f6-78facbfc0b00" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part2.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/car/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/car/CarCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car/CarCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/car/Kolor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car/Color.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/car/Marka.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car/Brand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/car/RodzajPaliwa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car/FuelType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/car/Skrzynia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car/GearBoxType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/car/StandardWyposazenia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car/EquipmentStandard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/car/carsCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car/carsCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/car/java/lang/annotations.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/annotations.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/car/CarCalculatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/car/CarCalculatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/car/carsCalculator.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -34,8 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/car/CarCalculatorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="238">
+              <caret line="14" column="16" lean-forward="true" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -97,7 +83,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="170" />
     <option name="y" value="90" />
     <option name="width" value="1027" />
@@ -324,6 +310,14 @@
       <option name="presentableId" value="Default" />
       <updated>1565194448722</updated>
     </task>
+    <task id="LOCAL-00001" summary="changes update">
+      <created>1581080118740</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1581080118740</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -427,6 +421,10 @@
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout-to-restore>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="changes update" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes update" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -553,8 +551,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/car/CarCalculatorTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="238">
+          <caret line="14" column="16" lean-forward="true" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
