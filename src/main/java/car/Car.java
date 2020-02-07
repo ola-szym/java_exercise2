@@ -6,75 +6,99 @@ import java.time.temporal.ChronoUnit;
 
 public class Car {
 
-    private Kolor kolor;
-    private Marka marka;
-    private RodzajPaliwa paliwo;
-    private Skrzynia skrzynia;
-    private StandardWyposazenia wyposazenie;
-    private LocalDate dataProdukcji;
+    private Color color;
+    private Brand brand;
+    private FuelType fuelType;
+    private GearBoxType gearBoxType;
+    private EquipmentStandard equipmentStandard;
+    private LocalDate productionDate;
 
-
-    Car(Kolor kolor, Marka marka, RodzajPaliwa paliwo, Skrzynia skrzynia, StandardWyposazenia wyposazenie, LocalDate dataProdukcji) {
-        this.kolor = kolor;
-        this.marka = marka;
-        this.paliwo = paliwo;
-        this.skrzynia = skrzynia;
-        this.wyposazenie = wyposazenie;
-        this.dataProdukcji = dataProdukcji;
+    public Car(Color color, Brand brand, FuelType fuelType, GearBoxType gearBoxType, EquipmentStandard equipmentStandard, LocalDate productionDate) {
+        this.color = color;
+        this.brand = brand;
+        this.fuelType = fuelType;
+        this.gearBoxType = gearBoxType;
+        this.equipmentStandard = equipmentStandard;
+        this.productionDate = productionDate;
     }
 
-    public Kolor getKolor() {
-        return kolor;
+
+    public Color getColor() {
+        return color;
     }
 
-    public Marka getMarka() {
-        return marka;
+    public void setColor(Color color) {
+        this.color = color;
     }
 
-    public RodzajPaliwa getPaliwo() {
-        return paliwo;
+    public Brand getBrand() {
+        return brand;
     }
 
-    public Skrzynia getSkrzynia() {
-        return skrzynia;
+    public void setBrand(Brand brand) {
+        this.brand = brand;
     }
 
-    public StandardWyposazenia getWyposazenie() {
-        return wyposazenie;
+    public FuelType getFuelType() {
+        return fuelType;
     }
 
-    public LocalDate getDataProdukcji() {
-        return dataProdukcji;
+    public void setFuelType(FuelType fuelType) {
+        this.fuelType = fuelType;
+    }
+
+    public GearBoxType getGearBoxType() {
+        return gearBoxType;
+    }
+
+    public void setGearBoxType(GearBoxType gearBoxType) {
+        this.gearBoxType = gearBoxType;
+    }
+
+    public EquipmentStandard getEquipmentStandard() {
+        return equipmentStandard;
+    }
+
+    public void setEquipmentStandard(EquipmentStandard equipmentStandard) {
+        this.equipmentStandard = equipmentStandard;
+    }
+
+    public LocalDate getProductionDate() {
+        return productionDate;
+    }
+
+    public void setProductionDate(LocalDate productionDate) {
+        this.productionDate = productionDate;
     }
 
     public int calculate() {
-        if (wyposazenie == StandardWyposazenia.VIP && kolor != Kolor.CZARNY) {
-            throw new IllegalStateException("VIP moze byc tylko czarny");
+        if (equipmentStandard == EquipmentStandard.VIP && color != Color.BLACK) {
+            throw new IllegalStateException("VIP might be only black");
         }
 
-        if (marka == Marka.FIAT && paliwo == RodzajPaliwa.DIESEL) {
-            throw new IllegalStateException("Nie ma fiata w wersji diesel");
+        if (brand == Brand.FIAT && fuelType == FuelType.DIESEL) {
+            throw new IllegalStateException("There is no Fiat with diesel");
         }
 
-        if (marka == Marka.AUDI && wyposazenie == StandardWyposazenia.BASIC) {
-            throw new IllegalStateException("Audi jest tylko w standardzie VIP i premium");
+        if (brand == Brand.AUDI && equipmentStandard == EquipmentStandard.BASIC) {
+            throw new IllegalStateException("Audi is only in VIP and premium standard");
         }
 
         int cena = 0;
 
-        cena += marka.getWartosc();
-        cena += kolor.getWartosc();
-        cena += paliwo.getWartosc();
-        cena += skrzynia.getWartosc();
-        cena += wyposazenie.getWartosc();
+        cena += brand.getValue();
+        cena += color.getValue();
+        cena += fuelType.getValue();
+        cena += gearBoxType.getValue();
+        cena += equipmentStandard.getValue();
 
-        if (kolor == Kolor.CZERWONY && wyposazenie == StandardWyposazenia.PREMIUM) {
+        if (color == Color.RED && equipmentStandard == EquipmentStandard.PREMIUM) {
             cena += 3000;
         }
 
         LocalDate today = LocalDate.now();
 
-        long years = ChronoUnit.YEARS.between(dataProdukcji, today);
+        long years = ChronoUnit.YEARS.between(productionDate, today);
         if (years > 5) {
             cena -= 0.2 * cena;
         }
@@ -82,36 +106,35 @@ public class Car {
     }
 
     public int calculatePriceAtDate(LocalDate data) {
-        if (wyposazenie == StandardWyposazenia.VIP && kolor != Kolor.CZARNY) {
-            throw new IllegalStateException("VIP moze byc tylko czarny");
+        if (equipmentStandard == EquipmentStandard.VIP && color != Color.BLACK){
+            throw new IllegalStateException("VIP might be only BLACK");
         }
 
-        if (marka == Marka.FIAT && paliwo == RodzajPaliwa.DIESEL) {
-            throw new IllegalStateException("Nie ma fiata w wersji diesel");
+        if (brand == Brand.FIAT &&  fuelType == FuelType.DIESEL) {
+            throw new IllegalStateException("There is no Fiat with Diesel");
         }
 
-        if (marka == Marka.AUDI && wyposazenie == StandardWyposazenia.BASIC) {
-            throw new IllegalStateException("Audi jest tylko w standardzie VIP i premium");
+        if (brand == Brand.AUDI && equipmentStandard == EquipmentStandard.BASIC) {
+            throw new IllegalStateException("Audi is only in VIP and premium standard");
         }
 
-        int cena = 0;
+        int price = 0;
 
-        cena += marka.getWartosc();
-        cena += kolor.getWartosc();
-        cena += paliwo.getWartosc();
-        cena += skrzynia.getWartosc();
-        cena += wyposazenie.getWartosc();
+        price += brand.getValue();
+        price += color.getValue();
+        price += fuelType.getValue();
+        price += gearBoxType.getValue();
+        price += equipmentStandard.getValue();
 
-        if (kolor == Kolor.CZERWONY && wyposazenie == StandardWyposazenia.PREMIUM) {
-            cena += 3000;
+        if (color == Color.RED && equipmentStandard == EquipmentStandard.PREMIUM) {
+            price += 3000;
         }
 
-
-        long years = ChronoUnit.YEARS.between(dataProdukcji, data);
+        long years = ChronoUnit.YEARS.between(productionDate, data);
         if (years > 5) {
-            cena -= 0.2 * cena;
+            price -= 0.2 * price;
         }
-        return cena;
+        return price;
 
     }
 }

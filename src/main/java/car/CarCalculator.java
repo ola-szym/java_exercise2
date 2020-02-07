@@ -10,25 +10,23 @@ public class CarCalculator {
 
     public static void main(String[] args) {
 
-        //tworze samochod z data produkcji 12-04-2010
-        Car car0 = new Car(Kolor.CZARNY, Marka.AUDI, RodzajPaliwa.DIESEL, Skrzynia.MANUALNA, StandardWyposazenia.VIP, LocalDate.of(2010,4,12));
-        int cena0 = calculate(car0);
-        System.out.println(cena0);
+        Car car0 = new Car(Color.BLACK, Brand.AUDI, FuelType.DIESEL, GearBoxType.MANUAL, EquipmentStandard.VIP, LocalDate.of(2010,4,12));
+        int price0 = calculate(car0);
+        System.out.println(price0);
 
-        Car car1 = new Car(Kolor.CZERWONY, Marka.FIAT, RodzajPaliwa.BENZYNA, Skrzynia.MANUALNA, StandardWyposazenia.PREMIUM,LocalDate.of(2015,1,13));
-        int cena1 = calculate(car1);
-        System.out.println(cena1);
+        Car car1 = new Car(Color.RED, Brand.FIAT, FuelType.PETROL, GearBoxType.MANUAL, EquipmentStandard.PREMIUM,LocalDate.of(2015,1,13));
+        int price1 = calculate(car1);
+        System.out.println(price1);
 
-        Car car2 = new Car(Kolor.CZERWONY, Marka.AUDI, RodzajPaliwa.DIESEL, Skrzynia.MANUALNA, StandardWyposazenia.PREMIUM,LocalDate.of(1998,6,22));
-        int cena2 = calculate(car2);
-        System.out.println(cena2);
+        Car car2 = new Car(Color.RED, Brand.AUDI, FuelType.DIESEL, GearBoxType.MANUAL, EquipmentStandard.PREMIUM,LocalDate.of(1998,6,22));
+        int price2 = calculate(car2);
+        System.out.println(price2);
 
-        Car car3 = new Car(Kolor.CZERWONY, Marka.AUDI, RodzajPaliwa.DIESEL, Skrzynia.MANUALNA, StandardWyposazenia.PREMIUM,LocalDate.of(2008,2,3));
-        int cena3 = calculate(car3);
-        System.out.println(cena3);
+        Car car3 = new Car(Color.RED, Brand.AUDI, FuelType.DIESEL, GearBoxType.MANUAL, EquipmentStandard.PREMIUM,LocalDate.of(2008,2,3));
+        int price3 = calculate(car3);
+        System.out.println(price3);
 
-
-        Car car4 = new Car(Kolor.CZARNY, Marka.AUDI, RodzajPaliwa.DIESEL, Skrzynia.MANUALNA, StandardWyposazenia.VIP,LocalDate.of(2017,11,28));
+        Car car4 = new Car(Color.BLACK, Brand.AUDI, FuelType.DIESEL, GearBoxType.MANUAL, EquipmentStandard.VIP,LocalDate.of(2017,11,28));
         calculate(car4);
 
         // -----------------
@@ -46,51 +44,51 @@ public class CarCalculator {
             sum = sum + calculate(element);
         }
 
-        System.out.println("Suma cen podanych samochodow wynosi: " + sum);
+        System.out.println("The sum of cars prices: " + sum);
     }
 
     public static int calculateCarsPrices(List<Car> cars){
-        int cena=0;
+        int price=0;
         for (Car car : cars){
-            cena+=calculate(car);
+            price+=calculate(car);
         }
-        return cena;
+        return price;
     }
 
 
     public static int calculate(Car car) {
-        if (car.getWyposazenie() == StandardWyposazenia.VIP && car.getKolor() != Kolor.CZARNY) {
-            throw new IllegalStateException("VIP moze byc tylko czarny");
+        if (car.getEquipmentStandard() == EquipmentStandard.VIP && car.getColor() != Color.BLACK) {
+            throw new IllegalStateException("VIP might be only black");
         }
 
-        if (car.getMarka() == Marka.FIAT && car.getPaliwo() == RodzajPaliwa.DIESEL) {
-            throw new IllegalStateException("Nie ma fiata w wersji diesel");
+        if (car.getBrand() == Brand.FIAT && car.getFuelType() == FuelType.DIESEL) {
+            throw new IllegalStateException("There is no Fiat with Diesel");
         }
 
-        if (car.getMarka() == Marka.AUDI && car.getWyposazenie() == StandardWyposazenia.BASIC) {
-            throw new IllegalStateException("Audi jest tylko w standardzie VIP i premium");
+        if (car.getBrand() == Brand.AUDI && car.getEquipmentStandard() == EquipmentStandard.BASIC) {
+            throw new IllegalStateException("Audi is only in VIP and premium standard");
         }
 
-        int cena = 0;
+        int price = 0;
 
-        cena += car.getMarka().getWartosc();
-        cena += car.getKolor().getWartosc();
-        cena += car.getPaliwo().getWartosc();
-        cena += car.getSkrzynia().getWartosc();
-        cena += car.getWyposazenie().getWartosc();
+        price += car.getBrand().getValue();
+        price += car.getColor().getValue();
+        price += car.getFuelType().getValue();
+        price += car.getGearBoxType().getValue();
+        price += car.getEquipmentStandard().getValue();
 
-        if (car.getKolor() == Kolor.CZERWONY && car.getWyposazenie() == StandardWyposazenia.PREMIUM) {
-            cena += 3000;
+        if (car.getColor() == Color.RED && car.getEquipmentStandard() == EquipmentStandard.PREMIUM) {
+            price += 3000;
         }
 
         LocalDate today = LocalDate.now();
 
-        long years = ChronoUnit.YEARS.between(car.getDataProdukcji(),today);
+        long years = ChronoUnit.YEARS.between(car.getProductionDate(),today);
         if (years>5){
-            cena-=0.2*cena;
+            price-=0.2*price;
         }
 
-        return cena;
+        return price;
     }
 
 }
